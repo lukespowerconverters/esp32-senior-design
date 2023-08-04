@@ -3,9 +3,12 @@
 #include "esp32_gpio.h"
 #include <string>
 
-/*External_WiFi_Network external_wifi_network;
+External_WiFi_Network external_wifi_network;
 ESP32_GPIO gpio;
 MQTT mqtt_broker;
+
+double pH_Level = 0;
+double Moisture_Level = 0;
 
 char* moisture_topic = "optimal_moisture_level";
 char* pH_topic = "optimal_pH_level";
@@ -52,19 +55,15 @@ void read_sensors() {
 
     mqtt_broker.publish("moisture_data", &moisture_out);
     mqtt_broker.publish("pH_data", &pH_out);
-}
+}*/
 
 void setup()
 {
-    external_wifi_network = External_WiFi_Network("Rach (2)", "ahrachel");
-
-    if(external_wifi_network.connected()) {
-        // Connect to the MQTT broker
-        input_settings();
-    }
+    
 }
 
 void loop() {
-    //read_sensors();
-    //delay(10000);
-}*/
+    gpio.pin_analog_read(MOISTURE_PIN);
+
+    delay(5000);
+}
