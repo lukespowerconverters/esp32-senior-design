@@ -3,12 +3,12 @@
 
 #include "tuple"
 
-class database {
+class Database {
     private:
         std::string projectID, serverID, tableID;
 
     public:
-        database();
+        Database();
 
         void connect_to_database(std::string project, std::string server, std::string table);
 
