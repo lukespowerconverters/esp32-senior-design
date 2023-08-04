@@ -19,7 +19,7 @@ class ESP32_GPIO {
         ESP32_GPIO();
 
         void pin_setup(int pin_num, PinType type);
-        void pin_analog_read(int pin_num);
+        int pin_analog_read(int pin_num);
 
         int read_data(int pin_num);
         void write_data(int pin_num, int data);

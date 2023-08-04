@@ -16,7 +16,7 @@ void ESP32_GPIO::pin_setup(int pin_num, PinType type) {
     }
 }
 
-void ESP32_GPIO::pin_analog_read(int pin_num) {
+int ESP32_GPIO::pin_analog_read(int pin_num) {
     // read the analog / millivolts value for the inputted pin number:
     int analogValue = analogRead(pin_num);
     int analogVolts = analogReadMilliVolts(pin_num);
@@ -27,6 +27,8 @@ void ESP32_GPIO::pin_analog_read(int pin_num) {
 
     // Clear data from the serial monitor
     delay(100);
+
+    return analogValue;
 }
 
 int ESP32_GPIO::read_data(int pin_num) {

@@ -10,6 +10,8 @@ MQTT mqtt_broker;
 double pH_Level = 0;
 double Moisture_Level = 0;
 
+double Moisture_Data, pH_Data;
+
 char* moisture_topic = "optimal_moisture_level";
 char* pH_topic = "optimal_pH_level";
 char* comeplete_topic = "stop";
@@ -55,7 +57,7 @@ void read_sensors() {
 
     mqtt_broker.publish("moisture_data", &moisture_out);
     mqtt_broker.publish("pH_data", &pH_out);
-}*/
+}
 
 void setup()
 {
