@@ -27,7 +27,7 @@ class ESP32_GPIO {
         double read_moisture_level();
         double read_pH_level();
 
-        void output_pump_control();
+        void output_pump_control(std::string start_or_stop);
 };
 
 #endif /* ESP32_GPIO_H_ */

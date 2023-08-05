@@ -6,20 +6,20 @@
 #include "esp32_gpio.h"
 #include <string>
 
-extern External_WiFi_Network external_wifi_network;
-extern ESP32_GPIO gpio;
-extern MQTT mqtt_broker;
+External_WiFi_Network external_wifi_network = External_WiFi_Network("Rach (2)", "ahrachel");
+ESP32_GPIO gpio = ESP32_GPIO();
+MQTT mqtt_broker;
 
-extern char* moisture_topic;
-extern char* pH_topic;
-extern char* comeplete_topic;
+char* moisture_topic;
+char* pH_topic;
+char* comeplete_topic;
 
-extern bool done_listening;
+bool done_listening;
 
-extern double pH_Level;
-extern double Moisture_Level;
-extern double pH_Data;
-extern double Moisture_Data;
+double pH_Level;
+double Moisture_Level;
+double pH_Data;
+double Moisture_Data;
 
 void set_values(std::string topic, std::string message) {
     if (topic == pH_topic) {
@@ -60,6 +60,16 @@ void read_sensors() {
 
     mqtt_broker.publish("moisture_data", &moisture_out);
     //mqtt_broker.publish("pH_data", &pH_out);
+}
+
+void motor_on_off() {
+    Serial.println();
+
+    gpio.output_pump_control("start");
+    Serial.println("ON");
+    delay(5000);
+    gpio.output_pump_control("stop");
+    Serial.println("OFF");
 }
 
 #endif /* MAIN_H */

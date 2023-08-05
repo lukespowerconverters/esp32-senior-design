@@ -7,11 +7,14 @@
 
 void setup()
 {
-    
+    input_settings();
+
 }
 
 void loop() {
-    gpio.pin_analog_read(MOISTURE_PIN);
+    read_sensors();
 
-    delay(5000);
+    delay(10000);
+
+    motor_on_off();
 }

@@ -57,6 +57,11 @@ double ESP32_GPIO::read_pH_level() {
 
 }
 
-void ESP32_GPIO::output_pump_control() {
-    digitalWrite(PUMP_PIN, HIGH);
+void ESP32_GPIO::output_pump_control(std::string start_or_stop) {
+    if (start_or_stop == "start") {
+        digitalWrite(PUMP_PIN, HIGH);
+    }
+    else if (start_or_stop == "stop") {
+        digitalWrite(PUMP_PIN, LOW);
+    }
 }
